@@ -7,9 +7,9 @@ export interface GenreState {
   name: string;
 }
 export interface MoviesState {
-  genres: GenreState[] | null;
-  movies: any;
-  nowPlaying: any;
+  genres: Array<GenreState>;
+  movies: Array<any>;
+  nowPlaying: Array<any>;
   status: "idle" | "loading" | "failed" | "succeeded";
   error?: string;
 }
@@ -52,20 +52,7 @@ export const getNowPlayingMovies = createAsyncThunk(
 export const moviesSlice = createSlice({
   name: "movies",
   initialState,
-
-  reducers: {
-    increment: (state: any) => {
-      state.value += 1;
-    },
-    decrement: (state: any) => {
-      state.value -= 1;
-    },
-
-    incrementByAmount: (state: any, action: PayloadAction<number>) => {
-      state.value += action.payload;
-    },
-  },
-
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(getGenres.pending, (state) => {
@@ -104,21 +91,8 @@ export const moviesSlice = createSlice({
   },
 });
 
-export const { increment, decrement, incrementByAmount } = moviesSlice.actions;
-
 export const selectGenres = (state: RootState) => state.movies.genres;
 export const selectMovies = (state: RootState) => state.movies.movies;
 export const selectNowPlaying = (state: RootState) => state.movies.nowPlaying;
-
-// We can also write thunks by hand, which may contain both sync and async logic.
-// Here's an example of conditionally dispatching actions based on current state.
-// export const incrementIfOdd =
-//   (amount: number): AppThunk =>
-//   (dispatch, getState) => {
-//     const currentValue = selectCount(getState());
-//     if (currentValue % 2 === 1) {
-//       dispatch(incrementByAmount(amount));
-//     }
-//   };
 
 export default moviesSlice.reducer;

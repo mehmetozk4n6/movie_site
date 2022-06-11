@@ -8,14 +8,20 @@ const Categories: React.FC = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(getGenres());
-  }, []);
+    if (genres?.length < 1) {
+      dispatch(getGenres());
+    }
+  }, [genres, dispatch]);
 
   return (
     <div>
-      {genres?.map((category, index: number) => (
-        <Category id={category.id} name={category.name} key={index} />
-      ))}
+      {genres?.map(
+        (category: any, index: number) =>
+          //  broken images in 10770  category.id
+          category.id !== 10770 && (
+            <Category id={category.id} name={category.name} key={index} />
+          )
+      )}
     </div>
   );
 };
