@@ -26,7 +26,7 @@ const Category: React.FC<CategoryProps> = ({ id, name }) => {
     if (!categoryMovies?.data) {
       dispatch(getMoviesWithCategory(id));
     }
-  }, []);
+  }, [dispatch]);
 
   return (
     <div>

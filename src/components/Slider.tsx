@@ -19,7 +19,7 @@ const Slider: React.FC = () => {
     if (nowPlaying.length < 1) {
       dispatch(getNowPlayingMovies());
     }
-  }, []);
+  }, [dispatch, nowPlaying.length]);
 
   return (
     <div>
