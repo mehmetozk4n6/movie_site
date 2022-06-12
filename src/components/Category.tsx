@@ -9,6 +9,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Navigation, Mousewheel, Keyboard } from "swiper";
 import { Card, Info } from "./styled/Card.styled";
+import { StyledH3, StyledHr } from "./styled/Category.styled";
 
 interface CategoryProps {
   id: number;
@@ -29,14 +30,8 @@ const Category: React.FC<CategoryProps> = ({ id, name }) => {
 
   return (
     <div>
-      <h3 style={{ margin: "0.8em 0 0 0.8em " }}>{name}</h3>
-      <hr
-        style={{
-          borderTop: "1px solid rgb(0,0,0,0.8)",
-          width: "30%",
-          marginBottom: "0.8em",
-        }}
-      />
+      <StyledH3>{name}</StyledH3>
+      <StyledHr />
       <Swiper
         breakpoints={{
           300: {

@@ -34,7 +34,6 @@ export const getMoviesWithCategory = createAsyncThunk(
     const res = await axios(
       `${process.env.REACT_APP_API_BASE_ENDPOINT}movie/popular${process.env.REACT_APP_API_BASE_ENDPOINT_QUERY}&region=TR&with_genres=${id}`
     );
-
     return { id, data: res.data.results };
   }
 );
@@ -44,7 +43,6 @@ export const getNowPlayingMovies = createAsyncThunk(
     const res = await axios(
       `${process.env.REACT_APP_API_BASE_ENDPOINT}movie/now_playing${process.env.REACT_APP_API_BASE_ENDPOINT_QUERY}&page=1`
     );
-
     return res.data.results;
   }
 );
@@ -95,5 +93,6 @@ export const selectGenres = (state: RootState) => state.movies.genres;
 export const selectMovies = (state: RootState) => state.movies.movies;
 export const selectNowPlaying = (state: RootState) => state.movies.nowPlaying;
 export const selectStatus = (state: RootState) => state.movies.status;
+export const selectError = (state: RootState) => state.movies.error;
 
 export default moviesSlice.reducer;

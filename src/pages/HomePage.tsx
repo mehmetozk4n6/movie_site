@@ -10,7 +10,7 @@ import { selectStatus } from "../redux/moviesSlice";
 const HomePage: React.FC = () => {
   const status = useAppSelector(selectStatus);
   useEffect(() => {
-    if (status === "loading" || status === "idle") {
+    if (!(status === "succeeded" || status === "failed")) {
       Swal.showLoading();
     } else {
       Swal.close();

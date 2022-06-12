@@ -54,6 +54,13 @@ const GlobalStyles = createGlobalStyle`
     li {
         list-style-type: none;
     }
+    .swiper-button-prev {
+  color: white !important;
+}
+.swiper-button-next {
+  color: white !important;
+}
+
  
 `;
 

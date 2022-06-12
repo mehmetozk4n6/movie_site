@@ -10,7 +10,7 @@ const MovieDetail: React.FC = () => {
   const [movieDetails, setMovieDetails] = useState<any>(null);
   const [loading, setLoading] = useState(true);
 
-  const { movieId } = useParams();
+  const { movieId } = useParams<string>();
 
   useEffect(() => {
     Swal.showLoading();
@@ -44,50 +44,49 @@ const MovieDetail: React.FC = () => {
                 className="desc-bg"
               />
               <div className="desc-content">
-                <div style={{ margin: "0 1.5em" }}>
-                  <tr>
-                    <th></th>
-                    <th>
-                      <h3>{movieDetails.original_title}</h3>
-                    </th>
-                  </tr>
-                  <tr>
-                    <td>Vote : </td>
-                    <td>{movieDetails.vote_average}</td>
-                  </tr>
-                  <tr>
-                    <td>Budget : </td>
-                    <td>{movieDetails.budget} $</td>
-                  </tr>
-                  <tr>
-                    <td>Genres : </td>
-                    <td>
-                      {movieDetails.genres
-                        .map((genre: any) => genre.name)
-                        .join(",")}
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Original Language : </td>
-                    <td>{movieDetails.original_language}</td>
-                  </tr>
-                  <tr>
-                    <td>Release Date : </td>
-                    <td>{movieDetails.release_date}</td>
-                  </tr>
-                  <tr>
-                    <td>Runtime</td>
-                    <td>{movieDetails.runtime} min</td>
-                  </tr>
-                  <tr>
-                    <td>Overview : </td>
-                    <td>{movieDetails.overview} min</td>
-                  </tr>
-                  <tr>
-                    <td> </td>
-                    <td>{movieDetails.tagline}</td>
-                  </tr>
-                </div>
+                <tr>
+                  <th></th>
+                  <th>
+                    <h3>{movieDetails.original_title}</h3>
+                  </th>
+                </tr>
+                <tr>
+                  <td>Vote</td>
+                  <td> : {movieDetails.vote_average}</td>
+                </tr>
+                <tr>
+                  <td>Budget</td>
+                  <td> : {movieDetails.budget} $</td>
+                </tr>
+                <tr>
+                  <td>Genres</td>
+                  <td>
+                    :{" "}
+                    {movieDetails.genres
+                      .map((genre: any) => genre.name)
+                      .join(", ")}
+                  </td>
+                </tr>
+                <tr>
+                  <td>Original Language</td>
+                  <td> : {movieDetails.original_language}</td>
+                </tr>
+                <tr>
+                  <td>Release Date</td>
+                  <td> : {movieDetails.release_date}</td>
+                </tr>
+                <tr>
+                  <td>Runtime</td>
+                  <td> : {movieDetails.runtime} min</td>
+                </tr>
+                <tr>
+                  <td>Overview</td>
+                  <td> : {movieDetails.overview} min</td>
+                </tr>
+                <tr>
+                  <td> </td>
+                  <td> {movieDetails.tagline.toUpperCase()}</td>
+                </tr>
               </div>
             </div>
           </DetailWrapper>

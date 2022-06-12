@@ -30,6 +30,9 @@ export const DetailWrapper = styled.div`
 
   .desc-content {
     position: relative;
-    left: 1em;
+    padding: 1em 1.5em;
+  }
+  td {
+    padding: auto;
   }
 `;
