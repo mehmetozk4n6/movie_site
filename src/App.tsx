@@ -7,10 +7,15 @@ import { ThemeProvider } from "styled-components";
 import { myTheme } from "./components/styled/Theme";
 import GlobalStyles from "./components/styled/Global";
 import NotFound from "./pages/NotFound";
+import { Helmet } from "react-helmet";
 
 function App() {
   return (
     <>
+      <Helmet>
+        <title>BeMyConnect</title>
+        <meta name="bemyconnect" content="Movies,TvShows" />
+      </Helmet>
       <ThemeProvider theme={myTheme}>
         <GlobalStyles />
         <BrowserRouter>
