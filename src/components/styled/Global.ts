@@ -1,21 +1,26 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
-    @media (max-width: 900px) {
+    @media (max-width: 1600px) {
         body {
             font-size: 12px;
         }
     }
+    /* @media (max-width: 900px) {
+        body {
+            font-size: 12px;
+        }
+    } */
 
     @media (max-width: 600px) {
         body {
-            font-size: 8px;
+            font-size: 10px;
         }
     }
 
-    @media (max-width: 400px) {
+    @media (max-width: 300px) {
         body {
-            font-size: 6px;
+            font-size: 8px;
         }
     }
 
@@ -28,6 +33,14 @@ const GlobalStyles = createGlobalStyle`
     body {
         font-family: 'Montserrat', sans-serif;
         min-width: 360px;
+        
+    }
+
+    .wrapper{
+        height: 100vh;
+        width: 100vw;
+        display: grid;
+        grid-template-rows: 2fr 20fr 2fr;
     }
 
     p {

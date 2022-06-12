@@ -1,5 +1,5 @@
-import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { RootState, AppThunk } from "./store";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { RootState } from "./store";
 import axios from "axios";
 
 export interface GenreState {
@@ -94,5 +94,6 @@ export const moviesSlice = createSlice({
 export const selectGenres = (state: RootState) => state.movies.genres;
 export const selectMovies = (state: RootState) => state.movies.movies;
 export const selectNowPlaying = (state: RootState) => state.movies.nowPlaying;
+export const selectStatus = (state: RootState) => state.movies.status;
 
 export default moviesSlice.reducer;

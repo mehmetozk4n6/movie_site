@@ -23,7 +23,9 @@ const Slider: React.FC = () => {
 
   return (
     <div>
-      <h2 style={{ margin: "0.8em 0 0.3em 1em" }}>In Theaters</h2>
+      <h2 style={{ margin: "0 0 0.4em 4em", padding: "0.3em 0" }}>
+        In Theaters
+      </h2>
       <Swiper
         cssMode={true}
         spaceBetween={30}
@@ -43,6 +45,7 @@ const Slider: React.FC = () => {
           <SwiperSlide key={movie.id}>
             <Link to={`/movie/${movie.id}`}>
               <img
+                width="100%"
                 loading="lazy"
                 src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
                 alt={movie.original_title}

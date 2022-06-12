@@ -4,7 +4,7 @@ export const Card = styled.div`
   border-radius: 0.3em;
   padding: 0;
   margin: 0;
-  background: white;
+  background: #1e002d;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -47,16 +47,14 @@ export const Info = styled.div`
   opacity: 0;
   transform: translateY(10px);
   transition: 0.5s;
-  h1 {
-    margin: 0px;
-  }
   p {
-    margin: 0px;
+    margin: auto auto;
+    font-size: 1.5em;
   }
   button {
-    font-size: 1em;
-    padding: 0.3em;
-    margin: 0px;
+    font-size: 1.5em;
+    padding: 0.4em;
+    margin: auto auto;
     outline: none;
     border: none;
     border-radius: 3px;

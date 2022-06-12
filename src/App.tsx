@@ -12,17 +12,15 @@ function App() {
   return (
     <>
       <ThemeProvider theme={myTheme}>
-        <>
-          <GlobalStyles />
-          <BrowserRouter>
-            <Header />
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="movie/:movieId" element={<MovieDetail />} />
-            </Routes>
-          </BrowserRouter>
-          <Footer />
-        </>
+        <GlobalStyles />
+        <BrowserRouter>
+          <Header />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="movie/:movieId" element={<MovieDetail />} />
+          </Routes>
+        </BrowserRouter>
+        <Footer />
       </ThemeProvider>
     </>
   );

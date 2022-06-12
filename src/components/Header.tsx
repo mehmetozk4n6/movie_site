@@ -9,11 +9,11 @@ const Header: React.FC = () => {
     <StyledHeader>
       <Container>
         <Link to="/">
-          <TbMovie size="2em" />
+          <TbMovie size="2.5em" />
         </Link>
       </Container>
     </StyledHeader>
   );
 };
 
-export default Header;
+export default React.memo(Header);

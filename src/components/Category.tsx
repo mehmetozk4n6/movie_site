@@ -38,7 +38,28 @@ const Category: React.FC<CategoryProps> = ({ id, name }) => {
         }}
       />
       <Swiper
-        slidesPerView={6}
+        breakpoints={{
+          300: {
+            width: 300,
+            slidesPerView: 2,
+          },
+          450: {
+            width: 450,
+            slidesPerView: 3,
+          },
+          600: {
+            width: 600,
+            slidesPerView: 4,
+          },
+          900: {
+            width: 900,
+            slidesPerView: 6,
+          },
+          1200: {
+            width: 1200,
+            slidesPerView: 8,
+          },
+        }}
         spaceBetween={20}
         navigation={true}
         mousewheel={true}
@@ -58,6 +79,7 @@ const Category: React.FC<CategoryProps> = ({ id, name }) => {
               />
               <Info className="info">
                 <p>{movie.original_title}</p>
+                <p>{movie.vote_average}</p>
                 <Link to={`/movie/${movie.id}`}>
                   <button>Read More!</button>
                 </Link>
