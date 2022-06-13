@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import { StyledBody } from "../components/styled/Body.styled";
 import { Container } from "../components/styled/Container.styled";
 import { DetailWrapper } from "../components/styled/DetailWrapper";
 import Swal from "sweetalert2";
