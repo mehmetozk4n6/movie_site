@@ -23,6 +23,9 @@ const GlobalStyles = createGlobalStyle`
             font-size: 8px;
         }
     }
+    :root {
+        --swiper-theme-color: #fff
+        }
 
     * {
         margin:0;
@@ -35,6 +38,7 @@ const GlobalStyles = createGlobalStyle`
         min-width: 360px;
         
     }
+
 
     .wrapper{
         height: 100vh;
@@ -54,12 +58,16 @@ const GlobalStyles = createGlobalStyle`
     li {
         list-style-type: none;
     }
-    .swiper-button-prev {
-  color: white !important;
+
+    
+
+.swiper-pagination-bullet{
+    width: var(--swiper-pagination-bullet-width,var(--swiper-pagination-bullet-size,15px));
+    height: var(--swiper-pagination-bullet-height,var(--swiper-pagination-bullet-size,4px));
+    border-radius: 0;
+
 }
-.swiper-button-next {
-  color: white !important;
-}
+
 
  
 `;

@@ -11,7 +11,7 @@ export interface MoviesState {
   movies: Array<any>;
   nowPlaying: Array<any>;
   status: "idle" | "loading" | "failed" | "succeeded";
-  error?: string;
+  error?: string | null;
 }
 
 const initialState: MoviesState = {
