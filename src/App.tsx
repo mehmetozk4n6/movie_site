@@ -8,8 +8,12 @@ import { myTheme } from "./components/styled/Theme";
 import GlobalStyles from "./components/styled/Global";
 import NotFound from "./pages/NotFound";
 import { Helmet } from "react-helmet";
+import { useAppSelector } from "./redux/hooks";
+import { selectIsLight } from "./redux/moviesSlice";
+import { StyledBody } from "./components/styled/Body.styled";
 
 function App() {
+  const isLight = useAppSelector(selectIsLight);
   return (
     <>
       <Helmet>
@@ -19,14 +23,16 @@ function App() {
       <ThemeProvider theme={myTheme}>
         <GlobalStyles />
         <BrowserRouter>
-          <Header />
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="movie/:movieId" element={<MovieDetail />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+          <Header isLight={isLight} />
+          <StyledBody isLight={isLight}>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="movie/:movieId" element={<MovieDetail />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </StyledBody>
         </BrowserRouter>
-        <Footer />
+        <Footer isLight={isLight} />
       </ThemeProvider>
     </>
   );

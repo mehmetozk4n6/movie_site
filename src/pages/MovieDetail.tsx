@@ -29,74 +29,72 @@ const MovieDetail: React.FC = () => {
       {loading ? (
         <div></div>
       ) : (
-        <StyledBody>
-          <Container>
-            {movieDetails && (
-              <DetailWrapper>
-                <div className="poster">
-                  <img
-                    loading="lazy"
-                    src={`https://image.tmdb.org/t/p/original${movieDetails.poster_path}`}
-                    alt={movieDetails.original_title}
-                  />
+        <Container>
+          {movieDetails && (
+            <DetailWrapper>
+              <div className="poster">
+                <img
+                  loading="lazy"
+                  src={`https://image.tmdb.org/t/p/original${movieDetails.poster_path}`}
+                  alt={movieDetails.original_title}
+                />
+              </div>
+              <div className="description desc-wrap">
+                <img
+                  loading="lazy"
+                  src={`https://image.tmdb.org/t/p/original${movieDetails.backdrop_path}`}
+                  alt={movieDetails.original_title}
+                  className="desc-bg"
+                />
+                <div className="desc-content">
+                  <tr>
+                    <th></th>
+                    <th>
+                      <h3>{movieDetails.original_title}</h3>
+                    </th>
+                  </tr>
+                  <tr>
+                    <td>Vote</td>
+                    <td> : {movieDetails.vote_average}</td>
+                  </tr>
+                  <tr>
+                    <td>Budget</td>
+                    <td> : {movieDetails.budget} $</td>
+                  </tr>
+                  <tr>
+                    <td>Genres</td>
+                    <td>
+                      :{" "}
+                      {movieDetails.genres
+                        .map((genre: any) => genre.name)
+                        .join(", ")}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Original Language</td>
+                    <td> : {movieDetails.original_language}</td>
+                  </tr>
+                  <tr>
+                    <td>Release Date</td>
+                    <td> : {movieDetails.release_date}</td>
+                  </tr>
+                  <tr>
+                    <td>Runtime</td>
+                    <td> : {movieDetails.runtime} min</td>
+                  </tr>
+                  <tr>
+                    <td>Overview</td>
+                    <td> : {movieDetails.overview} min</td>
+                  </tr>
+                  <tr>
+                    <td> </td>
+                    <td> {movieDetails.tagline.toUpperCase()}</td>
+                  </tr>
                 </div>
-                <div className="description desc-wrap">
-                  <img
-                    loading="lazy"
-                    src={`https://image.tmdb.org/t/p/original${movieDetails.backdrop_path}`}
-                    alt={movieDetails.original_title}
-                    className="desc-bg"
-                  />
-                  <div className="desc-content">
-                    <tr>
-                      <th></th>
-                      <th>
-                        <h3>{movieDetails.original_title}</h3>
-                      </th>
-                    </tr>
-                    <tr>
-                      <td>Vote</td>
-                      <td> : {movieDetails.vote_average}</td>
-                    </tr>
-                    <tr>
-                      <td>Budget</td>
-                      <td> : {movieDetails.budget} $</td>
-                    </tr>
-                    <tr>
-                      <td>Genres</td>
-                      <td>
-                        :{" "}
-                        {movieDetails.genres
-                          .map((genre: any) => genre.name)
-                          .join(", ")}
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Original Language</td>
-                      <td> : {movieDetails.original_language}</td>
-                    </tr>
-                    <tr>
-                      <td>Release Date</td>
-                      <td> : {movieDetails.release_date}</td>
-                    </tr>
-                    <tr>
-                      <td>Runtime</td>
-                      <td> : {movieDetails.runtime} min</td>
-                    </tr>
-                    <tr>
-                      <td>Overview</td>
-                      <td> : {movieDetails.overview} min</td>
-                    </tr>
-                    <tr>
-                      <td> </td>
-                      <td> {movieDetails.tagline.toUpperCase()}</td>
-                    </tr>
-                  </div>
-                </div>
-              </DetailWrapper>
-            )}
-          </Container>
-        </StyledBody>
+              </div>
+            </DetailWrapper>
+          )}
+        </Container>
       )}
     </div>
   );

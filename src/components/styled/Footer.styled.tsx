@@ -1,8 +1,16 @@
 import styled from "styled-components";
 
-export const StyledFooter = styled.footer`
-  background-color: ${({ theme }) => theme.background_colors?.footer};
-  color: ${({ theme }) => theme.colors?.footer};
+interface StyledFooterProps {
+  readonly isLight: boolean;
+}
+
+export const StyledFooter = styled.footer<StyledFooterProps>`
+  background-color: ${({ theme, isLight }) =>
+    !isLight
+      ? theme.background_colors?.footerlight
+      : theme.background_colors?.footer};
+  color: ${({ theme, isLight }) =>
+    !isLight ? theme.colors?.footerlight : theme.colors?.footer};
   padding: 2em 0;
   p {
     padding: 1em 0;

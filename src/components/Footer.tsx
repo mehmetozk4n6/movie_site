@@ -3,9 +3,13 @@ import { Container } from "./styled/Container.styled";
 import { StyledFooter } from "./styled/Footer.styled";
 import { AiFillGithub } from "react-icons/ai";
 
-const Footer: React.FC = () => {
+interface FooterProps {
+  readonly isLight: boolean;
+}
+
+const Footer: React.FC<FooterProps> = ({ isLight }) => {
   return (
-    <StyledFooter>
+    <StyledFooter isLight={isLight}>
       <Container>
         <div className="footerwrapper">
           <div className="footer1">

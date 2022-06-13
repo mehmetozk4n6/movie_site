@@ -1,5 +1,5 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { RootState } from "./store";
+import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { RootState, AppThunk } from "./store";
 import axios from "axios";
 
 export interface GenreState {
@@ -12,6 +12,7 @@ export interface MoviesState {
   nowPlaying: Array<any>;
   status: "idle" | "loading" | "failed" | "succeeded";
   error?: string | null;
+  isLight: boolean;
 }
 
 const initialState: MoviesState = {
@@ -20,6 +21,7 @@ const initialState: MoviesState = {
   nowPlaying: [],
   status: "idle",
   error: "",
+  isLight: false,
 };
 
 export const getGenres = createAsyncThunk("movies/getGenres", async () => {
@@ -50,7 +52,11 @@ export const getNowPlayingMovies = createAsyncThunk(
 export const moviesSlice = createSlice({
   name: "movies",
   initialState,
-  reducers: {},
+  reducers: {
+    lighten: (state: MoviesState) => {
+      state.isLight = !state.isLight;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getGenres.pending, (state) => {
@@ -89,10 +95,13 @@ export const moviesSlice = createSlice({
   },
 });
 
+export const { lighten } = moviesSlice.actions;
+
 export const selectGenres = (state: RootState) => state.movies.genres;
 export const selectMovies = (state: RootState) => state.movies.movies;
 export const selectNowPlaying = (state: RootState) => state.movies.nowPlaying;
 export const selectStatus = (state: RootState) => state.movies.status;
 export const selectError = (state: RootState) => state.movies.error;
+export const selectIsLight = (state: RootState) => state.movies.isLight;
 
 export default moviesSlice.reducer;
