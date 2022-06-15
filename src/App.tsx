@@ -12,6 +12,9 @@ import Footer from "./components/Footer";
 const HomePage = lazy(() => import("./pages/HomePage"));
 const MovieDetail = lazy(() => import("./pages/MovieDetail"));
 const NotFound = lazy(() => import("./pages/NotFound"));
+const Loading: React.FC = () => {
+  return <h1>Loading...</h1>;
+};
 
 function App() {
   const isLight = useAppSelector(selectIsLight);
@@ -26,7 +29,7 @@ function App() {
         <BrowserRouter>
           <Header isLight={isLight} />
           <StyledBody isLight={isLight}>
-            <Suspense fallback={<h1>Loading...</h1>}>
+            <Suspense fallback={<Loading />}>
               <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="movie/:movieId" element={<MovieDetail />} />

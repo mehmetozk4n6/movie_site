@@ -24,7 +24,7 @@ const GlobalStyles = createGlobalStyle`
         }
     }
     :root {
-        --swiper-theme-color: #fff
+        --swiper-theme-color: #fff !important
         }
 
     * {
@@ -62,8 +62,8 @@ const GlobalStyles = createGlobalStyle`
     
 
 .swiper-pagination-bullet{
-    width: var(--swiper-pagination-bullet-width,var(--swiper-pagination-bullet-size,15px));
-    height: var(--swiper-pagination-bullet-height,var(--swiper-pagination-bullet-size,4px));
+    width: var(--swiper-pagination-bullet-width,var(--swiper-pagination-bullet-size,15px)) !important;
+    height: var(--swiper-pagination-bullet-height,var(--swiper-pagination-bullet-size,4px)) !important;
     border-radius: 0;
 
 }
