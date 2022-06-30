@@ -6,7 +6,8 @@ import { DetailWrapper } from "../components/styled/DetailWrapper";
 import Swal from "sweetalert2";
 
 const MovieDetail: React.FC = () => {
-  const [movieDetails, setMovieDetails] = useState<any>(null);
+  // useState(undefined)
+  const [movieDetails, setMovieDetails] = useState<any>(undefined);
   const [loading, setLoading] = useState(true);
 
   const { movieId } = useParams<string>();
@@ -46,49 +47,53 @@ const MovieDetail: React.FC = () => {
                   className="desc-bg"
                 />
                 <div className="desc-content">
-                  <tr>
-                    <th></th>
-                    <th>
-                      <h3>{movieDetails.original_title}</h3>
-                    </th>
-                  </tr>
-                  <tr>
-                    <td>Vote</td>
-                    <td> : {movieDetails.vote_average}</td>
-                  </tr>
-                  <tr>
-                    <td>Budget</td>
-                    <td> : {movieDetails.budget} $</td>
-                  </tr>
-                  <tr>
-                    <td>Genres</td>
-                    <td>
-                      :{" "}
-                      {movieDetails.genres
-                        .map((genre: any) => genre.name)
-                        .join(", ")}
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Original Language</td>
-                    <td> : {movieDetails.original_language}</td>
-                  </tr>
-                  <tr>
-                    <td>Release Date</td>
-                    <td> : {movieDetails.release_date}</td>
-                  </tr>
-                  <tr>
-                    <td>Runtime</td>
-                    <td> : {movieDetails.runtime} min</td>
-                  </tr>
-                  <tr>
-                    <td>Overview</td>
-                    <td> : {movieDetails.overview} min</td>
-                  </tr>
-                  <tr>
-                    <td> </td>
-                    <td> {movieDetails.tagline.toUpperCase()}</td>
-                  </tr>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <th></th>
+                        <th>
+                          <h3>{movieDetails.original_title}</h3>
+                        </th>
+                      </tr>
+                      <tr>
+                        <td>Vote</td>
+                        <td> : {movieDetails.vote_average}</td>
+                      </tr>
+                      <tr>
+                        <td>Budget</td>
+                        <td> : {movieDetails.budget} $</td>
+                      </tr>
+                      <tr>
+                        <td>Genres</td>
+                        <td>
+                          :{" "}
+                          {movieDetails.genres
+                            .map((genre: any) => genre.name)
+                            .join(", ")}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Original Language</td>
+                        <td> : {movieDetails.original_language}</td>
+                      </tr>
+                      <tr>
+                        <td>Release Date</td>
+                        <td> : {movieDetails.release_date}</td>
+                      </tr>
+                      <tr>
+                        <td>Runtime</td>
+                        <td> : {movieDetails.runtime} min</td>
+                      </tr>
+                      <tr>
+                        <td>Overview</td>
+                        <td> : {movieDetails.overview} min</td>
+                      </tr>
+                      <tr>
+                        <td> </td>
+                        <td> {movieDetails.tagline.toUpperCase()}</td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
               </div>
             </DetailWrapper>

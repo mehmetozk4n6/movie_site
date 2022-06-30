@@ -8,7 +8,7 @@ export const Card = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  /* align-items: flex-end; */
   transition: 0.4s ease-out;
   box-shadow: 0px 7px 10px rgba(black, 0.5);
   &:hover {
